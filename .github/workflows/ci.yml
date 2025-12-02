@@ -28,9 +28,9 @@ name: CI pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -53,7 +53,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run tests
-        run: pytest -v
+        run: pytest -v test_all.py
 
       - name: Train model
         run: python train.py
@@ -66,3 +66,4 @@ jobs:
 
       - name: Log version
         run: echo "Training model version $MODEL_VERSION"
+
